@@ -1,6 +1,9 @@
 #include <iostream>
 using namespace std;
 
+// in C, we only have Pass by Value , Pass by Address
+// in C++, we also have Pass by Reference
+
 // Parse by Address
 void swap1(int *x1, int *y1)
 {
