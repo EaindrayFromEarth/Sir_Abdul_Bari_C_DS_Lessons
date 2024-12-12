@@ -1,6 +1,9 @@
 #include <stdio.h>
 
 // Sum of N
+/* 1. Sum of the first n natural numbers:
+ *    S(n) = 1 + 2 + 3 + ... + n = n * (n + 1) / 2
+ */
 int sumn(int n)
 {
     // Time complexity: O(1) - constant time

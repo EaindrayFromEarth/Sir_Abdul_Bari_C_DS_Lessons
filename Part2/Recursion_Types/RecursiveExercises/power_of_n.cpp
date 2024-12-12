@@ -1,5 +1,14 @@
 #include <stdio.h>
 
+/* 2. Power of n:
+ *    m^n = m * m * m * ... (n times)
+ *
+ *  Exponentiation by Squaring:
+ *    If n is even:
+ *      m^n = (m^(n/2))^2
+ *    If n is odd:
+ *      m^n = m * m^(n-1)
+ */
 int power_recursive(int m, int n)
 {
     // Time complexity: O(n) - linear time due to recursive calls

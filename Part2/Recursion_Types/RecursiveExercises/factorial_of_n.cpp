@@ -1,5 +1,9 @@
 #include <stdio.h>
 
+/* 3. Factorial of n:
+ *    n! = n * (n - 1) * (n - 2) * ... * 1
+ *    (where 0! = 1)
+ */
 int factorial_recursive(int n)
 {
     // Time complexity: O(n) - linear time due to recursive calls
