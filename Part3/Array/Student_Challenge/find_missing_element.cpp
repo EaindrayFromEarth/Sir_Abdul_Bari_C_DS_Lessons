@@ -2,6 +2,7 @@
 using namespace std;
 
 // Time Complexity: O(n) - Single pass through array
+// Sorted
 int findMissingElement(int A[], int n)
 {
     int diff = A[0] - 0; // Calculate initial difference
