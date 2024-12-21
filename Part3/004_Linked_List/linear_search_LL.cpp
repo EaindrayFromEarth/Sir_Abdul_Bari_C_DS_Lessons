@@ -6,6 +6,7 @@ struct Node
     int data;
     struct Node *next;
 } *first = NULL;
+
 void create(int A[], int n)
 {
     int i;
@@ -24,6 +25,7 @@ void create(int A[], int n)
         last = t;
     }
 }
+
 // Iterative Search O(n)
 struct Node *LSearch(struct Node *p, int key)
 {
@@ -43,6 +45,7 @@ struct Node *LSearch(struct Node *p, int key)
     }
     return NULL;
 }
+
 // Recursive Search O(n)
 struct Node *RSearch(struct Node *p, int key)
 {
@@ -52,6 +55,7 @@ struct Node *RSearch(struct Node *p, int key)
         return p;
     return RSearch(p->next, key);
 }
+
 int main()
 {
     struct Node *temp;

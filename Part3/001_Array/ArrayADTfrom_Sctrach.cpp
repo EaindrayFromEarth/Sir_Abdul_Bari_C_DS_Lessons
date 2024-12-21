@@ -7,6 +7,7 @@ struct Array
     int size;
     int length;
 };
+
 void Display(struct Array arr)
 {
     int i;
@@ -14,11 +15,13 @@ void Display(struct Array arr)
     for (i = 0; i < arr.length; i++)
         printf("%d ", arr.A[i]);
 }
+
 void Append(struct Array *arr, int x)
 {
     if (arr->length < arr->size)
         arr->A[arr->length++] = x;
 }
+
 void Insert(struct Array *arr, int index, int x)
 {
     int i;
@@ -30,6 +33,7 @@ void Insert(struct Array *arr, int index, int x)
         arr->length++;
     }
 }
+
 int Delete(struct Array *arr, int index)
 {
     int x = 0;
@@ -46,6 +50,7 @@ int Delete(struct Array *arr, int index)
 
     return 0;
 }
+
 void swap(int *x, int *y)
 {
     int temp;
@@ -53,6 +58,7 @@ void swap(int *x, int *y)
     *x = *y;
     *y = temp;
 }
+
 int LinearSearch(struct Array *arr, int key)
 {
     int i;
@@ -66,6 +72,7 @@ int LinearSearch(struct Array *arr, int key)
     }
     return -1;
 }
+
 int BinarySearch(struct Array arr, int key)
 {
     int l, mid, h;
@@ -84,6 +91,7 @@ int BinarySearch(struct Array arr, int key)
     }
     return -1;
 }
+
 int RBinSearch(int a[], int l, int h, int key)
 {
     int mid;
@@ -100,17 +108,20 @@ int RBinSearch(int a[], int l, int h, int key)
     }
     return -1;
 }
+
 int Get(struct Array arr, int index)
 {
     if (index >= 0 && index < arr.length)
         return arr.A[index];
     return -1;
 }
+
 void Set(struct Array *arr, int index, int x)
 {
     if (index >= 0 && index < arr->length)
         arr->A[index] = x;
 }
+
 int Max(struct Array arr)
 {
     int max = arr.A[0];
@@ -122,6 +133,7 @@ int Max(struct Array arr)
     }
     return max;
 }
+
 int Min(struct Array arr)
 {
     int min = arr.A[0];
@@ -133,6 +145,7 @@ int Min(struct Array arr)
     }
     return min;
 }
+
 int Sum(struct Array arr)
 {
     int s = 0;
@@ -142,10 +155,12 @@ int Sum(struct Array arr)
 
     return s;
 }
+
 float Avg(struct Array arr)
 {
     return (float)Sum(arr) / arr.length;
 }
+
 void Reverse(struct Array *arr)
 {
     int *B;
@@ -157,6 +172,7 @@ void Reverse(struct Array *arr)
     for (i = 0; i < arr->length; i++)
         arr->A[i] = B[i];
 }
+
 void Reverse2(struct Array *arr)
 {
     int i, j;
@@ -179,6 +195,7 @@ void InsertSort(struct Array *arr, int x)
     arr->A[i + 1] = x;
     arr->length++;
 }
+
 int isSorted(struct Array arr)
 {
     int i;
@@ -189,6 +206,7 @@ int isSorted(struct Array arr)
     }
     return 1;
 }
+
 void Rearrange(struct Array *arr)
 {
     int i, j;
@@ -205,14 +223,13 @@ void Rearrange(struct Array *arr)
             swap(&arr->A[i], &arr->A[j]);
     }
 }
-struct Array *Merge(struct Array *arr1, struct Array
-                                            *arr2)
+
+struct Array *Merge(struct Array *arr1, struct Array *arr2)
 {
     int i, j, k;
     i = j = k = 0;
 
-    struct Array *arr3 = (struct Array
-                              *)malloc(sizeof(struct Array));
+    struct Array *arr3 = (struct Array *)malloc(sizeof(struct Array));
 
     while (i < arr1->length && j < arr2->length)
     {
@@ -230,14 +247,13 @@ struct Array *Merge(struct Array *arr1, struct Array
 
     return arr3;
 }
-struct Array *Union(struct Array *arr1, struct Array
-                                            *arr2)
+
+struct Array *Union(struct Array *arr1, struct Array *arr2)
 {
     int i, j, k;
     i = j = k = 0;
 
-    struct Array *arr3 = (struct Array
-                              *)malloc(sizeof(struct Array));
+    struct Array *arr3 = (struct Array *)malloc(sizeof(struct Array));
 
     while (i < arr1->length && j < arr2->length)
     {
@@ -261,15 +277,13 @@ struct Array *Union(struct Array *arr1, struct Array
 
     return arr3;
 }
-struct Array *Intersection(struct Array *arr1, struct
-                           Array *arr2)
+
+struct Array *Intersection(struct Array *arr1, struct Array *arr2)
 {
     int i, j, k;
     i = j = k = 0;
 
-    struct Array *arr3 = (struct Array
-                              *)malloc(sizeof(struct Array));
-
+    struct Array *arr3 = (struct Array *)malloc(sizeof(struct Array));
     while (i < arr1->length && j < arr2->length)
     {
         if (arr1->A[i] < arr2->A[j])
@@ -288,14 +302,13 @@ struct Array *Intersection(struct Array *arr1, struct
 
     return arr3;
 }
-struct Array *Difference(struct Array *arr1, struct
-                         Array *arr2)
+
+struct Array *Difference(struct Array *arr1, struct Array *arr2)
 {
     int i, j, k;
     i = j = k = 0;
 
-    struct Array *arr3 = (struct Array
-                              *)malloc(sizeof(struct Array));
+    struct Array *arr3 = (struct Array *)malloc(sizeof(struct Array));
 
     while (i < arr1->length && j < arr2->length)
     {
@@ -367,7 +380,7 @@ int main()
             Display(arr1);
             break;
         }
-    } while (ch < 6); // Ensure this line is correct
+    } while (ch < 6);
 
-    return 0; // Closing the main function
+    return 0;
 }

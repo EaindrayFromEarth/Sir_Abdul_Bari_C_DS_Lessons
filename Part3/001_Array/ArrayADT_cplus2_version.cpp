@@ -49,6 +49,7 @@ public:
     Array *Diff(Array arr2);
     Array *Inter(Array arr2);
 };
+
 void Array::Display()
 {
     int i;
@@ -56,11 +57,13 @@ void Array::Display()
     for (i = 0; i < length; i++)
         cout << A[i] << " ";
 }
+
 void Array::Append(int x)
 {
     if (length < size)
         A[length++] = x;
 }
+
 void Array::Insert(int index, int x)
 {
     int i;
@@ -72,6 +75,7 @@ void Array::Insert(int index, int x)
         length++;
     }
 }
+
 int Array::Delete(int index)
 {
     int x = 0;
@@ -88,6 +92,7 @@ int Array::Delete(int index)
 
     return 0;
 }
+
 void Array::swap(int *x, int *y)
 {
     int temp;
@@ -95,6 +100,7 @@ void Array::swap(int *x, int *y)
     *x = *y;
     *y = temp;
 }
+
 int Array::LinearSearch(int key)
 {
     int i;
@@ -108,6 +114,7 @@ int Array::LinearSearch(int key)
     }
     return -1;
 }
+
 int Array::BinarySearch(int key)
 {
     int l, mid, h;
@@ -126,17 +133,20 @@ int Array::BinarySearch(int key)
     }
     return -1;
 }
+
 int Array::Get(int index)
 {
     if (index >= 0 && index < length)
         return A[index];
     return -1;
 }
+
 void Array::Set(int index, int x)
 {
     if (index >= 0 && index < length)
         A[index] = x;
 }
+
 int Array::Max()
 {
     int max = A[0];
@@ -148,6 +158,7 @@ int Array::Max()
     }
     return max;
 }
+
 int Array::Min()
 {
     int min = A[0];
@@ -159,6 +170,7 @@ int Array::Min()
     }
     return min;
 }
+
 int Array::Sum()
 {
     int s = 0;
@@ -168,10 +180,12 @@ int Array::Sum()
 
     return s;
 }
+
 float Array::Avg()
 {
     return (float)Sum() / length;
 }
+
 void Array::Reverse()
 {
     int *B;
@@ -183,6 +197,7 @@ void Array::Reverse()
     for (i = 0; i < length; i++)
         A[i] = B[i];
 }
+
 void Array::Reverse2()
 {
     int i, j;
@@ -191,6 +206,7 @@ void Array::Reverse2()
         swap(&A[i], &A[j]);
     }
 }
+
 void Array::InsertSort(int x)
 {
     int i = length - 1;
@@ -204,6 +220,7 @@ void Array::InsertSort(int x)
     A[i + 1] = x;
     length++;
 }
+
 int Array::isSorted()
 {
     int i;
@@ -214,6 +231,7 @@ int Array::isSorted()
     }
     return 1;
 }
+
 void Array::Rearrange()
 {
     int i, j;
@@ -230,6 +248,7 @@ void Array::Rearrange()
             swap(&A[i], &A[j]);
     }
 }
+
 Array *Array::Merge(Array arr2)
 {
     int i, j, k;
@@ -252,6 +271,7 @@ Array *Array::Merge(Array arr2)
 
     return arr3;
 }
+
 Array *Array::Union(Array arr2)
 {
     int i, j, k;
@@ -280,6 +300,7 @@ Array *Array::Union(Array arr2)
 
     return arr3;
 }
+
 Array *Array::Inter(Array arr2)
 {
     int i, j, k;
@@ -304,6 +325,7 @@ Array *Array::Inter(Array arr2)
 
     return arr3;
 }
+
 Array *Array::Diff(Array arr2)
 {
     int i, j, k;
@@ -330,6 +352,7 @@ Array *Array::Diff(Array arr2)
 
     return arr3;
 }
+
 int main()
 {
     Array *arr1;

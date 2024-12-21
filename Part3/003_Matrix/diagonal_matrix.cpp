@@ -5,11 +5,13 @@ struct Matrix
     int A[10];
     int n;
 };
+
 void Set(struct Matrix *m, int i, int j, int x)
 {
     if (i == j)
         m->A[i - 1] = x;
 }
+
 int Get(struct Matrix m, int i, int j)
 {
     if (i == j)
@@ -17,6 +19,7 @@ int Get(struct Matrix m, int i, int j)
     else
         return 0;
 }
+
 void Display(struct Matrix m)
 {
     int i, j;
@@ -32,6 +35,7 @@ void Display(struct Matrix m)
         printf("\n");
     }
 }
+
 int main()
 {
     struct Matrix m;
