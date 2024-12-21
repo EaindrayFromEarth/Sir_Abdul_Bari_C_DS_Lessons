@@ -1,11 +1,12 @@
-// Display a Linked List
 #include <stdio.h>
 #include <stdlib.h>
+
 struct Node
 {
     int data;
     struct Node *next;
 } *first = NULL;
+
 void create(int A[], int n)
 {
     int i;
@@ -24,6 +25,7 @@ void create(int A[], int n)
         last = t;
     }
 }
+
 void Display(struct Node *p)
 {
     while (p != NULL)
@@ -32,6 +34,7 @@ void Display(struct Node *p)
         p = p->next;
     }
 }
+
 void RDisplay(struct Node *p)
 {
     if (p != NULL)
@@ -41,11 +44,40 @@ void RDisplay(struct Node *p)
     }
 }
 
+int Delete(struct Node *p, int index)
+{
+    struct Node *q = NULL;
+    int x = -1, i;
+
+    if (index < 1 || index > count(p))
+        return -1;
+    if (index == 1)
+    {
+        q = first;
+        x = first->data;
+        first = first->next;
+        free(q);
+        return x;
+    }
+    else
+    {
+        for (i = 0; i < index - 1; i++)
+        {
+            q = p;
+            p = p->next;
+        }
+        q->next = p->next;
+        x = p->data;
+        free(p);
+        return x;
+    }
+}
+
 int main()
 {
-    struct Node *temp;
-    int A[] = {3, 5, 7, 10, 25, 8, 32, 2};
-    create(A, 8);
+    int A[] = {10, 20, 30, 40, 50};
+    create(A, 5);
+    printf("%d\n", Delete(first, 2));
     Display(first);
     return 0;
 }
