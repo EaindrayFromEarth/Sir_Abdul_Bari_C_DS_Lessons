@@ -1,4 +1,3 @@
-// Insert in a Linked List
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -8,7 +7,7 @@ struct Node
     struct Node *next;
 } *first = NULL;
 
-// O(n)
+// create a linked list from an array
 void create(int A[], int n)
 {
     int i;
@@ -28,7 +27,6 @@ void create(int A[], int n)
     }
 }
 
-// O(n)
 void Display(struct Node *p)
 {
     while (p != NULL)
@@ -39,7 +37,7 @@ void Display(struct Node *p)
     printf("\n");
 }
 
-// O(n)
+// count the number of nodes in the linked list
 int count(struct Node *p)
 {
     int count = 0;
@@ -50,7 +48,7 @@ int count(struct Node *p)
     }
     return count;
 }
-// O(n)
+
 void Insert(struct Node *p, int index, int x)
 {
     struct Node *t;
@@ -81,10 +79,10 @@ int main()
     int A[] = {10, 20, 30, 40, 50};
     create(A, 5);
 
-    Insert(first, 0, 5);
+    Insert(first, 0, 5);  // Insert 5 at index 0
+    Insert(first, 2, 15); // Insert 15 at index 2
+    Insert(first, 5, 25);
     Display(first);
 
     return 0;
 }
-
-// 5 10 20 30 40 50
