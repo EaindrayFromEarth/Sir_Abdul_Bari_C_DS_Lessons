@@ -1,6 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// Draw Backs
+// We cannot re-use the spaces of deleted elements
+
+// Solutions for drawback
+// 1 resetting pointers
+// 2 Circular Queue
+
 struct Queue
 {
     int size;
