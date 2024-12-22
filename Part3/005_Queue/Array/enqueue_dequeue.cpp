@@ -5,7 +5,7 @@
 // We cannot re-use the spaces of deleted elements
 
 // Solutions for drawback
-// 1 resetting pointers
+// 1 resetting pointers (this method doesn't gurentee the reuse of spaces)
 // 2 Circular Queue
 
 struct Queue
