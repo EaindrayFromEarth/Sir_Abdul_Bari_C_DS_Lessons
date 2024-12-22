@@ -52,4 +52,12 @@ m-ary Trees:
 4. Height of an m-ary tree:
    - Height (h) can be calculated based on the number of nodes (n):
      h = log_m(n * (m - 1) + 1) - 1
+
+
+Representation of Bineary Tree
+ element -> i
+ left child -> 2*i
+ right child -> 2*i+1
+ Parent - [i/2]
+
 */
