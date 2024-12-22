@@ -70,6 +70,85 @@ Node *insert(Node *p, int key)
     return p;
 }
 
+int Height(Node *p)
+{
+    if (p == NULL)
+        return -1;
+    int leftHeight = Height(p->lchild);
+    int rightHeight = Height(p->rchild);
+    return (leftHeight > rightHeight ? leftHeight : rightHeight) + 1;
+}
+
+Node *InPre(Node *p)
+{
+    while (p && p->rchild != NULL)
+    {
+        p = p->rchild;
+    }
+    return p;
+}
+
+Node *InSucc(Node *p)
+{
+    while (p && p->lchild != NULL)
+    {
+        p = p->lchild;
+    }
+    return p;
+}
+
+Node *Delete(Node *p, int key)
+{
+    if (p == NULL)
+        return NULL;
+
+    if (key < p->data)
+    {
+        p->lchild = Delete(p->lchild, key);
+    }
+    else if (key > p->data)
+    {
+        p->rchild = Delete(p->rchild, key);
+    }
+    else
+    {
+        if (p->lchild == NULL && p->rchild == NULL)
+        {
+            free(p);
+            return NULL;
+        }
+        else if (p->lchild == NULL)
+        {
+            Node *temp = p->rchild;
+            free(p);
+            return temp;
+        }
+        else if (p->rchild == NULL)
+        {
+            Node *temp = p->lchild;
+            free(p);
+            return temp;
+        }
+        else
+        {
+            Node *q;
+            if (Height(p->lchild) > Height(p->rchild))
+            {
+                q = InPre(p->lchild);
+                p->data = q->data;
+                p->lchild = Delete(p->lchild, q->data);
+            }
+            else
+            {
+                q = InSucc(p->rchild);
+                p->data = q->data;
+                p->rchild = Delete(p->rchild, q->data);
+            }
+        }
+    }
+    return p;
+}
+
 int main()
 {
     Node *root = NULL;
@@ -87,7 +166,6 @@ int main()
         printf("Not found\n");
     }
 
-    // root = insert(root, 7);
     foundNode = RSearch(root, 7);
     if (foundNode != NULL)
     {
@@ -97,9 +175,19 @@ int main()
     {
         printf("Not found\n");
     }
-
+    root = Delete(root, 5);
+    foundNode = RSearch(root, 5);
+    if (foundNode != NULL)
+    {
+        printf("Found: %d\n", foundNode->data);
+    }
+    else
+    {
+        printf("Not found\n");
+    }
     return 0;
 }
-// Expected output:
+
 // Found: 5
-// Not Found
+// Not found
+// Not found
